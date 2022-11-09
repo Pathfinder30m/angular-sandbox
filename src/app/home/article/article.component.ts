@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   moduleId: module.id,
@@ -9,10 +9,13 @@ import { Component, OnInit, Input } from '@angular/core';
 export class ArticleComponent implements OnInit {
   articleName = "This is name of the article"
   @Input() someValue: any;
-  number1 = '1'
-  pressed() {
-    document.createElement('p').innerHTML = this.number1
+  @Output() onPress = new EventEmitter();
+
+  firePressed(e: any) {
+    this.onPress.emit(e)
   }
+  number1 = '1'
+
   constructor() { }
 
   ngOnInit(): void {

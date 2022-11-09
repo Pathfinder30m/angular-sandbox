@@ -7,7 +7,9 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
   @Input() someValue: any;
-
+  pressed(e: any) {
+    alert("Button is pressed")
+  }
   constructor() { }
 
   ngOnInit(): void {
