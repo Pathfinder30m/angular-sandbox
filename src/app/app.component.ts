@@ -7,5 +7,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Angular2.0 Sandbox';
-
+  someValue = "this data is inherit twise"
 }
