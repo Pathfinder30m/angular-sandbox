@@ -1,25 +1,38 @@
-import { NgModule } from '@angular/core';
+import { importProvidersFrom, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { ArticleComponent } from './home/article/article.component';
+import { AsideComponent } from './aside/aside.component';
+import { RouterModule, Routes } from '@angular/router';
 
-@NgModule({
-  declarations: [
-    AppComponent,
-    HomeComponent,
-    ArticleComponent
-  ],
-  imports: [
-    BrowserModule,
-    FormsModule,
-    AppRoutingModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
-})
+const APP_ROUTES: Routes = [
+  { path: 'home', component: HomeComponent },
+  { path: 'aside', component: AsideComponent }
+]
+@NgModule(
+
+  {
+
+    declarations: [
+      AppComponent,
+      HomeComponent,
+      ArticleComponent,
+      AsideComponent
+    ],
+    imports: [
+      BrowserModule,
+      FormsModule,
+      AppRoutingModule,
+      RouterModule.forRoot(APP_ROUTES, { enableTracing: true })
+    ],
+    providers: [],
+    bootstrap: [AppComponent]
+
+  })
+
 export class AppModule {
 
 }
